@@ -10,14 +10,12 @@ import UIKit
 
 class CVDate: NSObject {
     private let date: NSDate?
-    let year: Int?
-    let month: Int?
-    let week: Int?
-    let day: Int?
+    var year: Int?
+    var month: Int?
+    var week: Int?
+    var day: Int?
     
     init(date: NSDate) {
-        super.init()
-        
         let calendarManager = CVCalendarManager.sharedManager
         
         self.date = date
@@ -25,18 +23,19 @@ class CVDate: NSObject {
         self.year = calendarManager.dateRange(date).year
         self.month = calendarManager.dateRange(date).month
         self.day = calendarManager.dateRange(date).day
+        super.init()
     }
     
     init(day: Int, month: Int, week: Int, year: Int) {
-        super.init()
-        
         self.year = year
         self.month = month
         self.week = week
         self.day = day
+        self.date = NSDate()
+        super.init()
     }
     
-    func description() -> String {
+    func dateDescription() -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMMM"
         

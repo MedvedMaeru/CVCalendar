@@ -35,7 +35,7 @@ class CVCalendarView: UIView {
             }
         }
         
-        println("Mode is : \(calendarMode?)")
+        println("Mode is : \(calendarMode)")
     }
     
     // MARK: - Current date 
@@ -108,15 +108,6 @@ class CVCalendarView: UIView {
     var animator: CVCalendarViewAnimatorDelegate? = CVCalendarViewAnimator()
     
     // MARK: - Initialization
-    
-    override init() {
-        super.init()
-        
-        hidden = true
-        loadCalendarMode()
-        contentController = CVCalendarContentViewController(calendarView: self, frame: bounds)
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

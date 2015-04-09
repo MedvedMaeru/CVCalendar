@@ -13,9 +13,9 @@ class CVCalendarWeekView: UIView {
     // MARK: - Public properties
     
     var monthView: CVCalendarMonthView?
-    let index: Int?
-    let weekdaysIn: [Int : [Int]]?
-    let weekdaysOut: [Int : [Int]]?
+    var index: Int?
+    var weekdaysIn: [Int : [Int]]?
+    var weekdaysOut: [Int : [Int]]?
     
     var dayViews: [CVCalendarDayView]?
     
@@ -25,7 +25,7 @@ class CVCalendarWeekView: UIView {
     // MARK: - Initialization
 
     init(monthView: CVCalendarMonthView, frame: CGRect, index: Int) {
-        super.init()
+        super.init(frame: frame)
         
         self.monthView = monthView
         self.frame = frame
@@ -84,7 +84,7 @@ class CVCalendarWeekView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Content filling 
+    // MARK: - Content filling
 
     func createDayViews() {
         self.dayViews = [CVCalendarDayView]()
