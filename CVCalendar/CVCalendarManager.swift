@@ -227,7 +227,9 @@ class CVCalendarManager: NSObject {
     // MARK: - Util methods
     
     func componentsForDate(date: NSDate) -> NSDateComponents {
-        let units = NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitDay
+        let units = NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | 
+        NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitWeekOfMonth
+        
         let components = self.calendar!.components(units, fromDate: date)
         
         return components
